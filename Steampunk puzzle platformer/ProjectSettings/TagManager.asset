@@ -6,6 +6,7 @@ TagManager:
   tags:
   - player
   - Playertrig
+  - wall
   layers:
   - Default
   - TransparentFX

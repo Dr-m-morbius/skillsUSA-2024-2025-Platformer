@@ -24,6 +24,12 @@ public class leaver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      playercheck();
+      movedoor();
+    }
+    void playercheck()
+    {
+        //check if player is in range
       if (_circlecollider.IsTouchingLayers(WhatIsplayer))
       {
         IsTouchingPlayer = true;
@@ -32,23 +38,18 @@ public class leaver : MonoBehaviour
       {
         IsTouchingPlayer = false;
       }
+    }
+    void movedoor()
+    {
+//move door forward and back
         if(Input.GetKeyUp(KeyCode.E) && IsTouchingPlayer)
         {
-          door.transform.position = doorsecondposition.transform.position;
-          
+          door.transform.position = doorsecondposition.transform.position; 
         }
-       
       if(Input.GetKeyUp(KeyCode.R)&& IsTouchingPlayer)
       {
         door.transform.position = originaldoorposition.transform.position;
       }
-        
-        
     }
-      //checking if it is touching the player
     
- 
-    }
-
-
- 
+}
