@@ -6,10 +6,7 @@ using UnityEngine;
 public class leaver : MonoBehaviour
 {
     public GameObject door;
-    
-    public bool doormoved = false;
     public LayerMask WhatIsplayer;
-    public bool doorinoriginalspot = true;
     public Transform originaldoorposition;
     public Transform doorsecondposition;
     private CircleCollider2D _circlecollider;
