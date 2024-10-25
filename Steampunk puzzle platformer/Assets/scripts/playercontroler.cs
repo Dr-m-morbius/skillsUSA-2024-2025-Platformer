@@ -6,6 +6,7 @@ using UnityEngine;
 public class playercontroler : MonoBehaviour
 {
      public float MoveSpeed = 20f;
+     
     public float JumpForce = 15f;
     public LayerMask WhatIsGround;
     [SerializeField] private bool _isOnGround;
