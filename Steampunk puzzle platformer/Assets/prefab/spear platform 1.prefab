@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e0dc54934db2042dbaffcc25bfd17c4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,6 +146,6 @@ MonoBehaviour:
   WhatIsplayer:
     serializedVersion: 2
     m_Bits: 128
-  player: {fileID: 0}
   spear: {fileID: 6474779825548543707, guid: 70e092d4485c74867a5601b4481b833f, type: 3}
+  player: {fileID: 0}
   IsTouchingPlayer: 0

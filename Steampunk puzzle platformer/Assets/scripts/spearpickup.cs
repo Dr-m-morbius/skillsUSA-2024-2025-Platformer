@@ -13,17 +13,19 @@ public class spearpickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        boxCollider2D = GetComponent<BoxCollider2D>();
-        player = GameObject.Find("player").transform;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+      boxCollider2D = GetComponent<BoxCollider2D>();
+        player = GameObject.Find("Player").transform;
          playercheck();
          if (Input.GetKeyDown(KeyCode.F) && IsTouchingPlayer)
          {
         Instantiate(spear, player.position, player.rotation);
+        Destroy(this.gameObject);
          }
     }
 

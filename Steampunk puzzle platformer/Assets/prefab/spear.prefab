@@ -87,7 +87,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e0dc54934db2042dbaffcc25bfd17c4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,13 +133,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrown: 0
   hasspear: 1
-  spearposition: {fileID: 0}
+  spearposition: {fileID: 5809973826638400620}
   platform: {fileID: 5570241465792012792, guid: ec2375546cc264e8d849c3b4ce5cae49, type: 3}
   WhatIswall:
     serializedVersion: 2
     m_Bits: 256
   moveSpeed: 60
-  player: {fileID: 0}
+  playertransform: {fileID: 0}
 --- !u!61 &3413309761174576438
 BoxCollider2D:
   m_ObjectHideFlags: 0
