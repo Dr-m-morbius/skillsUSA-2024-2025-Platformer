@@ -40,7 +40,7 @@ public class spear : MonoBehaviour
         }
         boxCollider2D = GetComponent<BoxCollider2D>();
         playertransform = GameObject.Find("Player");
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("spear thrown");
             thrown = true;
