@@ -1413,6 +1413,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 777440825}
+    - target: {fileID: 474557060106255612, guid: 70e092d4485c74867a5601b4481b833f, type: 3}
+      propertyPath: playertransform
+      value: 
+      objectReference: {fileID: 777440822}
     - target: {fileID: 6474779825548543707, guid: 70e092d4485c74867a5601b4481b833f, type: 3}
       propertyPath: m_Name
       value: spear
