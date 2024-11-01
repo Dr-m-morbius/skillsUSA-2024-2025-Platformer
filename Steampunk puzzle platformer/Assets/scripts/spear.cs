@@ -32,6 +32,7 @@ public class spear : MonoBehaviour
         {
             facingright = true;
             facingleft = false;
+        
         }
          if (Input.GetKeyDown(KeyCode.A))
         {
