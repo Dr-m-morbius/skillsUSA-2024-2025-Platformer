@@ -7,6 +7,7 @@ public class spear : MonoBehaviour
     // Start is called before the first frame update
     
     public bool thrown = false;
+    
     public bool hasspear = true;
     public Transform spearposition;
     
@@ -28,16 +29,18 @@ public class spear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && hasspear)
         {
             facingright = true;
             facingleft = false;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         
         }
-         if (Input.GetKeyDown(KeyCode.A))
+         if (Input.GetKeyDown(KeyCode.A) && hasspear)
         {
             facingright = false;
             facingleft = true;
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         boxCollider2D = GetComponent<BoxCollider2D>();
         playertransform = GameObject.Find("Player");
@@ -57,7 +60,7 @@ public class spear : MonoBehaviour
         }
         else if (facingleft)
         {
-            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
         }
         if (boxCollider2D.IsTouchingLayers(WhatIswall) && thrown)
         {
