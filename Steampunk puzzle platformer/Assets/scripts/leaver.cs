@@ -7,15 +7,18 @@ public class leaver : MonoBehaviour
 {
     public GameObject door;
     public LayerMask WhatIsplayer;
+    Animator animator;
     public Transform originaldoorposition;
+    public bool moving = false;
     public Transform doorsecondposition;
-    private CircleCollider2D _circlecollider;
+    private BoxCollider2D _boxcollider;
     [SerializeField] private bool IsTouchingPlayer;
     // Start is called before the first frame update
     void Start()
     {
-      _circlecollider = GetComponent<CircleCollider2D>();
+      _boxcollider = GetComponent<BoxCollider2D>();
         door.transform.position = originaldoorposition.transform.position;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,11 +26,12 @@ public class leaver : MonoBehaviour
     {
       playercheck();
       movedoor();
+      animator.SetBool ("moving", moving);
     }
     void playercheck()
     {
         //check if player is in range
-      if (_circlecollider.IsTouchingLayers(WhatIsplayer))
+      if (_boxcollider.IsTouchingLayers(WhatIsplayer))
       {
         IsTouchingPlayer = true;
       }
@@ -42,6 +46,7 @@ public class leaver : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.E) && IsTouchingPlayer)
         {
           door.transform.position = doorsecondposition.transform.position; 
+          moving = true;
         }
       if(Input.GetKeyUp(KeyCode.R)&& IsTouchingPlayer)
       {
