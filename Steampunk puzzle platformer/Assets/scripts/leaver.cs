@@ -8,16 +8,20 @@ public class leaver : MonoBehaviour
     public GameObject door;
     public LayerMask WhatIsplayer;
     Animator animator;
-    public Transform originaldoorposition;
-    public bool moving = false;
-    public Transform doorsecondposition;
+    //public Transform[] positions;
+    public float Speed = 1f;
+    
+    private door _door;
+    public bool forward = false;
+    public bool back = false;
+ 
     private BoxCollider2D _boxcollider;
     [SerializeField] private bool IsTouchingPlayer;
     // Start is called before the first frame update
     void Start()
     {
       _boxcollider = GetComponent<BoxCollider2D>();
-        door.transform.position = originaldoorposition.transform.position;
+       _door = GetComponent<door>();
         animator = GetComponent<Animator>();
     }
 
@@ -26,7 +30,8 @@ public class leaver : MonoBehaviour
     {
       playercheck();
       movedoor();
-      animator.SetBool ("moving", moving);
+      animator.SetBool ("forward", forward);
+      animator.SetBool ("back", back);
     }
     void playercheck()
     {
@@ -45,13 +50,17 @@ public class leaver : MonoBehaviour
 //move door forward and back
         if(Input.GetKeyUp(KeyCode.E) && IsTouchingPlayer)
         {
-          door.transform.position = doorsecondposition.transform.position; 
-          moving = true;
+          //door.transform.position = doorsecondposition.transform.position; 
+          back = false;
+          forward = true;
+          _door.movedoor();
         }
       if(Input.GetKeyUp(KeyCode.R)&& IsTouchingPlayer)
       {
-        door.transform.position = originaldoorposition.transform.position;
+        //door.transform.position = originaldoorposition.transform.position;
+        forward = false;
+        back = true;
+        _door.movedorrback();
       }
-    }
-    
+}
 }

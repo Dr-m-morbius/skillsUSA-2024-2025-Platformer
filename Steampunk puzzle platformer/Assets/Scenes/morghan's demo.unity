@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 139602542}
   - component: {fileID: 139602544}
   - component: {fileID: 139602543}
+  - component: {fileID: 139602545}
   m_Layer: 0
   m_Name: door_0
   m_TagString: Untagged
@@ -164,7 +165,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139602541}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 74709d006e9394264906706fc2aa9eb9, type: 2}
   m_CullingMode: 0
@@ -229,6 +230,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &139602545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139602541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9c22c4d534842fa803cdef8806b511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorsecondposition: {fileID: 205547177}
+  Speed: 6
+  originaldoorposition: {fileID: 1868055426}
 --- !u!1001 &162496164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1024,7 +1040,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 2.2857144, y: 2.2857144}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1049,9 +1065,9 @@ MonoBehaviour:
   WhatIsplayer:
     serializedVersion: 2
     m_Bits: 128
-  originaldoorposition: {fileID: 1868055426}
-  moving: 0
-  doorsecondposition: {fileID: 205547177}
+  Speed: 6
+  forward: 0
+  back: 0
   IsTouchingPlayer: 0
 --- !u!95 &667566648
 Animator:
@@ -1135,7 +1151,7 @@ Transform:
   m_GameObject: {fileID: 667566645}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5, y: -1.5, z: 0}
+  m_LocalPosition: {x: -11.72, y: -1.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1995,6 +2011,7 @@ GameObject:
   - component: {fileID: 1109375226}
   - component: {fileID: 1109375225}
   - component: {fileID: 1109375227}
+  - component: {fileID: 1109375228}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -2115,6 +2132,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9446492, y: 0.9444325}
   m_EdgeRadius: 0
+--- !u!114 &1109375228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109375224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9c22c4d534842fa803cdef8806b511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorsecondposition: {fileID: 205547177}
+  Speed: 6
+  originaldoorposition: {fileID: 1868055426}
 --- !u!1 &1126416197
 GameObject:
   m_ObjectHideFlags: 0
