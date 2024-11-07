@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class leaver : MonoBehaviour
 {
-    public GameObject door;
+    
     public LayerMask WhatIsplayer;
     Animator animator;
-    //public Transform[] positions;
-    public float Speed = 1f;
     
-    private door _door;
+    public GameObject door;
+    
+    private door _doorscript;
     public bool forward = false;
     public bool back = false;
  
@@ -21,13 +21,21 @@ public class leaver : MonoBehaviour
     void Start()
     {
       _boxcollider = GetComponent<BoxCollider2D>();
-       _door = GetComponent<door>();
+       _doorscript = door.GetComponent<door>();
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+      if(forward)
+      {
+        _doorscript.movedoor();
+      }
+      else if (back)
+      {
+        _doorscript.movedorrback();
+      }
       playercheck();
       movedoor();
       animator.SetBool ("forward", forward);
@@ -53,14 +61,14 @@ public class leaver : MonoBehaviour
           //door.transform.position = doorsecondposition.transform.position; 
           back = false;
           forward = true;
-          _door.movedoor();
+          _doorscript.movedoor();
         }
       if(Input.GetKeyUp(KeyCode.R)&& IsTouchingPlayer)
       {
         //door.transform.position = originaldoorposition.transform.position;
         forward = false;
         back = true;
-        _door.movedorrback();
+        _doorscript.movedorrback();
       }
 }
 }

@@ -6,12 +6,13 @@ public class door : MonoBehaviour
 {
        public Transform doorsecondposition;
        public float Speed = 6f;
+       public float waitime;
       
        public Transform originaldoorposition;
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
