@@ -8,7 +8,9 @@ public class playercontroler : MonoBehaviour
      public float MoveSpeed = 20f;
      
     public float JumpForce = 15f;
+    public bool running;
     public LayerMask WhatIsGround;
+    Animator m_Animator;
     [SerializeField] private bool _isOnGround;
     [SerializeField] private bool _canDoubleJump;
 
@@ -20,6 +22,8 @@ public class playercontroler : MonoBehaviour
     {
         _capsulecollider2d = GetComponent<CapsuleCollider2D>();
         _playerRb = GetComponent<Rigidbody2D>();
+        m_Animator = GetComponent<Animator> ();
+        Vector2 Velocity = _playerRb.velocity;
                 _playerCollider = GetComponent<CapsuleCollider2D>();
 
     }
@@ -27,8 +31,44 @@ public class playercontroler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+         if (Input.GetKeyDown(KeyCode.D))
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        
         movement();
         Jump();
+        if (_playerRb.velocity.x > 0)
+        {
+            running = true;
+        }
+        else 
+        {
+            running = false;
+        }
+        m_Animator.SetBool ("is running", running);
+        if (_playerRb.velocity.x < 0)
+        {
+            running = true;
+        }
+        else 
+        {
+            running = false;
+        }
+        m_Animator.SetBool ("is running", running);
+        if (_playerRb.velocity.x > 0)
+        {
+            running = true;
+        }
+        else 
+        {
+            running = false;
+        }
+        m_Animator.SetBool ("is running", running);
     }
     private void movement()
     {
