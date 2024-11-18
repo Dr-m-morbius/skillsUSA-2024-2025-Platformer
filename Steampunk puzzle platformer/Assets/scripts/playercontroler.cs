@@ -9,6 +9,7 @@ public class playercontroler : MonoBehaviour
      
     public float JumpForce = 15f;
     public bool running;
+    public bool jumping;
     public LayerMask WhatIsGround;
     Animator m_Animator;
     [SerializeField] private bool _isOnGround;
@@ -31,44 +32,39 @@ public class playercontroler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         m_Animator.SetBool ("is jumping", jumping);
+         m_Animator.SetBool ("is running", running);
         if (Input.GetKeyDown(KeyCode.A))
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
+            
         }
-         if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
+            
         }
+        
         
         movement();
         Jump();
+        
+       
         if (_playerRb.velocity.x > 0)
         {
-            running = true;
+            running =true;
         }
-        else 
+         if (_playerRb.velocity.x < 0)
         {
-            running = false;
+            running =true;
         }
-        m_Animator.SetBool ("is running", running);
-        if (_playerRb.velocity.x < 0)
+         if (_playerRb.velocity.x == 0)
         {
-            running = true;
+            running =false;
         }
-        else 
-        {
-            running = false;
-        }
-        m_Animator.SetBool ("is running", running);
-        if (_playerRb.velocity.x > 0)
-        {
-            running = true;
-        }
-        else 
-        {
-            running = false;
-        }
-        m_Animator.SetBool ("is running", running);
+        
+        
+        
     }
     private void movement()
     {
@@ -84,6 +80,7 @@ public class playercontroler : MonoBehaviour
         {
             _isOnGround = true;
             _canDoubleJump = true;
+            jumping = false;
            
         }
         else
@@ -97,6 +94,7 @@ public class playercontroler : MonoBehaviour
             if (_isOnGround)
             {
                 _playerRb.velocity = new Vector2(_playerRb.velocity.x, JumpForce);
+                jumping = true;
             }
               else
             {
