@@ -9,11 +9,17 @@ public class playercontroler : MonoBehaviour
      
     public float JumpForce = 15f;
     public bool running;
+    public bool landed;
+    public float landtime;
     public bool jumping;
+    public bool falling;
     public LayerMask WhatIsGround;
+    public LayerMask WhatIsWall;
     Animator m_Animator;
     [SerializeField] private bool _isOnGround;
+    
     [SerializeField] private bool _canDoubleJump;
+    public bool walljump;
 
     private Rigidbody2D _playerRb;
     private CapsuleCollider2D _capsulecollider2d;
@@ -34,6 +40,7 @@ public class playercontroler : MonoBehaviour
     {
          m_Animator.SetBool ("is jumping", jumping);
          m_Animator.SetBool ("is running", running);
+         m_Animator.SetBool ("is falling", falling);
         if (Input.GetKeyDown(KeyCode.A))
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
@@ -44,11 +51,20 @@ public class playercontroler : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, 0);
             
         }
+        if (_playerRb.velocity.y < 0)
+        {
+            falling = true;
+        }
+        else 
+        {
+            falling = false;
+        }
         
         
         movement();
         Jump();
-        
+       
+
        
         if (_playerRb.velocity.x > 0)
         {
@@ -74,8 +90,17 @@ public class playercontroler : MonoBehaviour
 
     }
 
+
      void Jump()
     {
+        if (_playerCollider.IsTouchingLayers(WhatIsWall))
+        {
+            walljump = true;
+        }
+        else
+        {
+            walljump = false;
+        }
         if (_playerCollider.IsTouchingLayers(WhatIsGround)) //_playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))
         {
             _isOnGround = true;
@@ -103,5 +128,14 @@ public class playercontroler : MonoBehaviour
                     _playerRb.velocity = new Vector2(_playerRb.velocity.x, JumpForce);
                     _canDoubleJump = false;
                 }
+                else
+                {
+                    if (walljump)
+                    {
+                        _playerRb.velocity = new Vector2(_playerRb.velocity.x, JumpForce);
+                    walljump = false;
+                    }
+                }
 }
-    }}}
+    }}
+}
