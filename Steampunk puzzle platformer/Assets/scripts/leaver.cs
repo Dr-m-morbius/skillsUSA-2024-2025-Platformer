@@ -63,6 +63,7 @@ public class leaver : MonoBehaviour
           forward = true;
           _doorscript.movedoor();
         }
+    
       if(Input.GetKeyUp(KeyCode.R)&& IsTouchingPlayer)
       {
         //door.transform.position = originaldoorposition.transform.position;
