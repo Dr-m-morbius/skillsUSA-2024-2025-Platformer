@@ -227,6 +227,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &625752221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 625752223}
+  - component: {fileID: 625752222}
+  m_Layer: 0
+  m_Name: gamemanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &625752222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625752221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ef4d7810a1942d2b571db06428c375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelOne: 1
+  Leveltwo: 2
+--- !u!4 &625752223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625752221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 611.4817, y: 211.15881, z: 1.6769516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &738359291
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +624,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lvl 2
+  m_text: 'Lvl 1
 
 '
   m_isRightToLeft: 0
@@ -670,7 +716,7 @@ GameObject:
   - component: {fileID: 1422311264}
   - component: {fileID: 1422311263}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: lvl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -739,7 +785,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1422311264}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 625752222}
+        m_TargetAssemblyTypeName: levelselect, Assembly-CSharp
+        m_MethodName: OnlvltwoButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1422311264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -925,7 +983,7 @@ GameObject:
   - component: {fileID: 1728280818}
   - component: {fileID: 1728280817}
   m_Layer: 5
-  m_Name: Button
+  m_Name: level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -994,7 +1052,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1728280818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 625752222}
+        m_TargetAssemblyTypeName: levelselect, Assembly-CSharp
+        m_MethodName: OnlvloneButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1728280818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,3 +1110,4 @@ SceneRoots:
   - {fileID: 882599157}
   - {fileID: 17786979}
   - {fileID: 738359294}
+  - {fileID: 625752223}

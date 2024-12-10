@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class levelselect : MonoBehaviour
 {
@@ -9,14 +10,19 @@ public class levelselect : MonoBehaviour
     {
         
     }
-
+public int LevelOne;
+public int Leveltwo;
     // Update is called once per frame
     void Update()
     {
         
     }
-    public void OnplayButtonPressed()
+    public void OnlvloneButtonPressed()
     {
-        
+        SceneManager.LoadScene(LevelOne);
+    }
+    public void OnlvltwoButtonPressed()
+    {
+        SceneManager.LoadScene(Leveltwo);
     }
 }
