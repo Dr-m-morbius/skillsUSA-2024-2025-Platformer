@@ -10,6 +10,7 @@ public class door : MonoBehaviour
        public Transform doorsecondposition;
        public float Speed = 6f;
        bool moving = false;
+       bool movingback = false;
        public LayerMask whatisdoorstop;
        Animator m_Animator;
        Rigidbody2D rb;
@@ -44,7 +45,7 @@ public class door : MonoBehaviour
     public void movedorrback()
     {
         transform.position = Vector2.MoveTowards(transform.position, originaldoorposition.position, Speed * Time.deltaTime);
-        moving = true;
+        movingback = true;
     }
    
         

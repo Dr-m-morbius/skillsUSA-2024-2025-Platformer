@@ -20,6 +20,7 @@ public class playercontroler : MonoBehaviour
     
     [SerializeField] private bool _canDoubleJump;
     public bool walljump;
+    public bool notwalljumped;
 
     private Rigidbody2D _playerRb;
     private CapsuleCollider2D _capsulecollider2d;
@@ -106,6 +107,7 @@ public class playercontroler : MonoBehaviour
             _isOnGround = true;
             _canDoubleJump = true;
             jumping = false;
+            notwalljumped = true;
            
         }
         else
@@ -130,10 +132,11 @@ public class playercontroler : MonoBehaviour
                 }
                 else
                 {
-                    if (walljump)
+                    if ((walljump)&& notwalljumped)
                     {
                         _playerRb.velocity = new Vector2(_playerRb.velocity.x, JumpForce);
                     walljump = false;
+                    notwalljumped = false;
                     }
                 }
 }
